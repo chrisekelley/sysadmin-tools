@@ -1,0 +1,16 @@
+from http://stackoverflow.com/questions/10854883/retrieve-just-deleted-document
+get deleted history, e.g.:
+curl http://example.iriscouch.com/test/_changes
+you'll see deleted documents with $id and $rev, put empty document as new version, e.g.:
+
+curl -X PUT http://example.iriscouch.com/test/$id?rev=$rev -H "Content-Type: application/json" -d {}
+now you can get all revisions info, e.g:
+
+curl http://example.iriscouch.com/test/$id?revs_info=true
+obtain version before deletion, e.g.:
+
+curl http://example.iriscouch.com/test/$id?rev=$prev_rev
+put it back to couchdb, e.g.:
+
+curl -X PUT http://example.iriscouch.com/test/$id?rev=$rev -H \'Content-Type: application/json\' -d \'$data\'
+Let me know if you have any better way, or script.
