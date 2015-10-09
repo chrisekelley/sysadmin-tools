@@ -1,0 +1,8 @@
+{
+	"DB Server Title #1": {
+		"url": "http://my.couchdb-server.com",
+		"port": "5984",
+		"username": "admin",
+		"password": "password"
+	}
+}
